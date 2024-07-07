@@ -1,0 +1,6 @@
+To find the best algorithm
+
+
+
+for i in range(n):
+print(i)
