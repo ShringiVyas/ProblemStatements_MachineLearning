@@ -1,6 +1,57 @@
-To find the best algorithm
+916. Breast Classification Algorithm
 
+Find the best algorithm among Gaussian Naive Bayes, Decision Tree, and Support Vector Machine in the breast cancer classification 
+task based on their accuracy scores when different test sizes are given.
 
+Example 1 
+Input
+test_size = 0.3
+Output
+SVM
 
-for i in range(n):
-print(i)
+Example 2
+Input
+test_size = 0.4
+Output
+Naive Bayes
+
+Constraints
+Load the breast cancer data from SK-Learn
+
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
+from sklearn import tree
+from sklearn.svm import SVC
+from sklearn.metrics import accuracy_score
+
+def best_classifier(test_size):
+  df = load_breast_cancer()
+  
+  X = df.data
+  y = df.target
+  X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = test_size, random_state = 0)
+  
+  naive_bayes = GaussianNB()
+  naive_bayes.fit(X_train, y_train)
+  naive_bayes_pred = naive_bayes.predict(X_test)
+  naive_bayes_accuracy = accuracy_score(y_test, naive_bayes_pred)
+  
+  decision_tree = tree.DecisionTreeClassifier()
+  decision_tree.fit(X_train, y_train)
+  decision_tree_pred = decision_tree.predict(X_test)
+  decision_tree_accuracy = accuracy_score (y_test, decision_tree_pred)
+  
+  svm = SVC()
+  svm.fit(X_train, y_train)
+  svm_pred = svm.predict(X_test)
+  svm_accuracy = accuracy_score(y_test, svm_pred)
+  
+  if naive_bayes_accuracy > decision_tree_accuracy and naive_bayes_accuracy > svm_accuracy:
+    return "Naive Bayes"
+  elif decision_tree_accuracy > naive_bayes_accuracy and decision_tree_accuracy > svm_accuracy:
+    return "Decision Tree"
+  else:
+    return "SVM"
+print(best_classifier(test_size))
+  
