@@ -1,0 +1,100 @@
+Define a loss function as (x - y)^2 and optimize it using the Adam optimization algorithm for a given value of x and y.
+
+Example 1
+
+Input
+
+x_init = 1.5
+y = 0.5
+Output
+
+The optimal x value is: 0.5 
+The corresponding loss value is: 0.0
+Example 2
+
+Input
+
+x_init = 325
+y = 301
+Output
+
+The optimal x value is: 301.00015468343133
+The corresponding loss value is: 2.3926963928972325e-08
+
+
+import math
+
+def loss_function(x, y):
+   return (x-y)**2
+def gradient_func(x, y):
+  return 2*(x-y)
+
+def adam_optimizer(grad_fn, x_init, learning_rate=0.1, beta1=0.9, beta2=0.999, eps=1e-8, num_iterations=1000):
+  m, v, t = 0, 0, 0 
+  while t < num_iterations:
+    t += 1 
+    grad = grad_fn(x_init, y) 
+    m = beta1 * m + (1 - beta1) * grad
+    v = beta2 * v + (1 - beta2) * (grad**2) 
+    m_hat = m / (1 - beta1**t)
+    v_hat = v / (1 - beta2**t) 
+    x_init -= learning_rate * m_hat / (math.sqrt(v_hat) + eps)
+  return x_init
+optimal_x = adam_optimizer(gradient_func, x_init, y) 
+optimal_loss = loss_function(optimal_x, y) 
+
+
+
+print(f"The optimal x value is: {optimal_x}") 
+print(f"The corresponding loss value is: {optimal_loss}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
