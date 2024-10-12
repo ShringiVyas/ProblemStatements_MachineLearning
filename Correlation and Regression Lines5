@@ -1,0 +1,16 @@
+The two regression lines of a bivariate distribution are: 4x – 5y + 33 = 0 and 20x – 9y – 107 = 0. find the variance of y when Sigma x = 3. Compute the correct answer to one decimal place.
+
+Output Format
+In the text box, enter the floating point or decimal value required. Do not lead any leading or trailing spaces. Your answer may look like: 7.2
+This is NOT the actual answer - just the format in which you should provide your answer
+
+
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+def func(sigma_x):
+    slope1 = 5/4 #y on x line
+    slope2 = 20/9 #x on y line
+    var = (slope2/slope1) * sigma_x**2
+    return var
+
+print(func(3))
