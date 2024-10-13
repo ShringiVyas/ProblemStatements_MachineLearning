@@ -1,0 +1,23 @@
+Problem statement
+Halloween is a night of costumes, fun, and candy that takes place every year on October 31. On this day people dress up in various costumes that have a scary overtone and go trick-or-treating to gather candy.
+This year, on Halloween, there is a carnival in your neighborhood. Besides the various games, there are also 50 stalls that are selling various products, which fall under various categories.
+Your task is to predict the selling price of the products based on the provided features. 
+
+Model: https://www.kaggle.com/code/shringivyas/halloweenstallproducts
+
+1. Data Preprocessing: 
+   - Missing values were handled by filling them with the mean.
+   - One-hot encoding was applied to categorical variables (grade, loyalty_customer, Product_category).
+   - Three columns were dropped, for them to have to relevance with selling price calculation (product_id, stall_no, customer_name, instock_date)
+2. Exploratory Data Analysis:
+   - A correlation matrix/heatmap was plotted to identify the relevant features for the model.
+3. Modeling:
+   - Data was transformed using `fit_transform`.
+   - Polynomial regression and linear regression models were applied, with degree = 4.
+4. Testing:
+   - The same transformations and modeling were applied to the test file.
+5. Performance:
+   - The model achieved an R-squared score of 95%, indicating a high level of accuracy in predicting the selling price.
+This process reflects strong data cleaning, feature engineering, and modeling steps, leading to excellent predictive performance.
+
+
