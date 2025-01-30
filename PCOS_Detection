@@ -1,0 +1,35 @@
+Overview
+Polycystic ovary syndrome (PCOS) is a common endocrine disorder that affects the reproductive health and quality of life of millions of women worldwide. Research has shown that lifestyle choices such as diet, exercise, stress management, etc. have a significant impact on the pathogenesis and symptom relief of PCOS. However, there are still many gaps in research on the relationship between lifestyle and PCOS, especially in terms of individual differences and comprehensive lifestyle interventions.
+
+In order to promote research progress in this field, we are organizing the "Polycystic Ovary Syndrome (PCOS) Lifestyle Impact Research Competition". The aim is to use data-driven methods to deeply analyze the impact of lifestyle choices on PCOS, and provide scientific basis for clinical intervention and health management.
+
+Dataset: The dataset has features: 
+Age                      
+Weight_kg                                  
+Hormonal_Imbalance       
+Hyperandrogenism         
+Hirsutism                
+Conception_Difficulty    
+Insulin_Resistance       
+Exercise_Frequency       
+Exercise_Type            
+Exercise_Duration        
+Sleep_Hours              
+Exercise_Benefit 
+
+Pre-processing: Upon studying the dataset, I came accross a few missing values that had to be dropped. Since most of the features except weight are categorical, feature engineering using label encoder from scikit learn is performed. Lastly, normalization using Standard Scaler is implemented.
+
+Classifiers: The dataset is splitted into 80:20 ratio for training purposes. The test data accounts to 20%. several classifiers including random forest, svm, naive bayes, and MLP are implemented.
+Here, in MLP we are using the following layers in the sequntial model from keras:
+input layer: input_shape=(X_train.shape[1],) means the number of input neurons is equal to the total processed features after encoding and normalization
+hidden layers: 1. The first hidden layer (32 neurons, ReLU activation) learns general patterns.
+               2. The second hidden layer (16 neurons, ReLU activation) refines these patterns, making the model more efficient without overfitting
+output layer: Since we are dealing with a binary classification problem (PCOS: Yes/No), we use 1 neuron with a Sigmoid activation function
+model compilation:  1. We use Adam (Adaptive Moment Estimation), which adjusts learning rates automatically for faster and more stable training
+                    2.  Since it’s a binary classification problem, we use Binary Crossentropy, which helps measure the difference between the predicted probability and the actual label (0 or 1)
+                    3. Accuracy: to calculate the correctly classified values
+
+We see that the accuracies of ML models are 89% whereas DL model is 92%. Also, the area under curve (auc) of ROC curve for MLP is 0.91 whereas 0.87 for ML models. This strongly supports that MLP is an ideal model for this classification.
+
+Kaggle Notebook: https://www.kaggle.com/code/shringivyas/pcos-detection 
+
