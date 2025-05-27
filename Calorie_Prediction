@@ -1,1 +1,20 @@
+Overview
+Welcome to the 2025 Kaggle Playground Series! We plan to continue in the spirit of previous playgrounds, providing interesting and approachable datasets for our community to practice their machine learning skills, and anticipate a competition each month.
+Your Goal: Your goal is to predict how many calories were burned during a workout.
+
+Dataset:    
+The dataset for this competition (both train and test) was generated from a deep learning model trained on the Calories Burnt Prediction dataset. Feature distributions are close to, but not exactly the same, as the original. Feel free to use the original dataset as part of this competition, both to explore differences as well as to see whether incorporating the original in training improves model performance.
+
+Files:
+train.csv - the training dataset; Calories is the continuous target
+test.csv - the test dataset; your objective is to predict the Calories for each row
+sample_submission.csv - a sample submission file in the correct format.
+
+Pre-processing: Upon studying the dataset, I understood the dataset had no missing values and was ready to work with. I had to encode categorical columns.
+
+Classifiers: The dataset is splitted into 80:20 ratio for training purposes. The test data accounts to 20%.
+In the Calorie Prediction task, both Random Forest Regressor and Linear Regression were evaluated using Mean Absolute Error (MAE), R² score, and Root Mean Squared Logarithmic Error (RMSLE). The Random Forest model significantly outperformed Linear Regression, achieving a low MAE of 2.28 and an excellent R² of 0.99, indicating strong predictive accuracy and near-perfect fit. Its RMSLE of 0.06 further confirms high precision with minimal log-scaled error. In contrast, the Linear Regression model yielded a higher MAE of 8.08 and a lower R² of 0.96, along with a noticeably larger RMSLE of 0.50, suggesting it struggled with capturing non-linear relationships in the data.
+In conclusion, the Random Forest Regressor is the superior model for this task, demonstrating robust performance across all metrics. Its ability to model complex patterns makes it well-suited for calorie prediction, whereas Linear Regression, limited by its linear assumptions, is less effective in this context.
+
+Kaggle Notebook: https://www.kaggle.com/code/shringivyas/calorie-prediction 
 
