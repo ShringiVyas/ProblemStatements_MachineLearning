@@ -1,1 +1,9 @@
+The dataset used for this model is a combination of two sets of MRI images:
+1. https://www.kaggle.com/datasets/navoneel/brain-mri-images-for-brain-tumor-detection 
+2. https://www.kaggle.com/datasets/rahimanshu/figshare-brain-tumor-classification
+The first dataset has brain MRI images of 2 classes: Tumor - YES/NO. 
+Whereas, the second dataset (figshare) has MRI images of types brain tumor, namely, Meningioma, Glioma, and Pituitary.
+The combined dataset for this model has types of brain tumor from figshare dataset and "NO" tumor class from Brain-mri-images-for-brain-tumor-detection dataset.
+
+Thus, the model is trained on brain mri images of 4 classes. 
 
