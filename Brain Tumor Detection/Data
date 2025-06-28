@@ -26,5 +26,5 @@ The model is compiled with the Adam optimizer, categorical crossentropy loss, an
 
 
 Results:
-The model has an accuracy of 93%
+The model has an accuracy of 90%
 
