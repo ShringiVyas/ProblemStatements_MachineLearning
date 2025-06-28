@@ -1,9 +1,30 @@
+Data:
 The dataset used for this model is a combination of two sets of MRI images:
 1. https://www.kaggle.com/datasets/navoneel/brain-mri-images-for-brain-tumor-detection 
 2. https://www.kaggle.com/datasets/rahimanshu/figshare-brain-tumor-classification
 The first dataset has brain MRI images of 2 classes: Tumor - YES/NO. 
 Whereas, the second dataset (figshare) has MRI images of types brain tumor, namely, Meningioma, Glioma, and Pituitary.
 The combined dataset for this model has types of brain tumor from figshare dataset and "NO" tumor class from Brain-mri-images-for-brain-tumor-detection dataset.
-
 Thus, the model is trained on brain mri images of 4 classes. 
+
+Pre-processing:
+The image preprocessing operations used are:
+1. Image resizing 
+2. Noise removal using GaussianBlur 
+3. Normalization 
+
+In addition to this, to enhace the image quality for tumor detection, the following mathematical operations are performed:
+1. Canny Edge Detection: for boundary detection
+2. GLCM matrix: for texture analysis
+3. otsu thresholding
+
+Model:
+Here, I have implemented Convolution Neural Networks. It starts with a convolutional layer of 32 filters followed by a max pooling layer, then a second convolutional layer with 64 filters and another pooling layer. 
+A third, deeper convolutional layer with 128 filters and a larger kernel size (8×8) is included to capture more abstract features, followed by max pooling. 
+The output is then flattened and passed through a dense layer with 128 neurons activated by ReLU, and finally through a softmax-activated output layer that produces class probabilities. 
+The model is compiled with the Adam optimizer, categorical crossentropy loss, and accuracy as the evaluation metric.
+
+
+Results:
+The model has an accuracy of 93%
 
